@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: pink;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #noButton {
+            position: absolute;
+        }
+
+        .card-section {
+            text-align: center;
+            background: white;
+            width: 450px;
+            height: 150px;
+        }
+
+        button {
+            width: 50px;
+            height: 30px;
+            background-color: tomato;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body onload="handleLoad()">
+    <div>
+        <div id="section-1" class="card-section">
+            <h2>DEAR, Will You be my Valentine &#128525</h2>
+            <button onclick="handleYes(event)">Yes</button>
+            <button id="noButton" onclick="handleNo(event)">No</button>
+            <div>
+                <p id="promtText">I know you have feelings for me, so press YES!</p>
+            </div>
+        </div>
+
+        <div id="section-2" class="card-section">
+            <h3> YAY! </h3>
+            <h5>Best Decision Ever</h5>
+            <img src="" alt="celebration video">
+            <p>I LOVE YOU </p>
+        </div>
+
+    </div>
+
+    <script>
+        let propmtArray = [
+            "Try Again..",
+            "Press No One more time.",
+            "Think about this, we can be together.",
+            "No....., WHAT ARE YOU DOING??",
+            "Try clicking YES.."
+        ];
+
+
+        function handleYes(event) {
+            document.getElementById("section-2").style.display = "block";
+            document.getElementById("section-1").style.display = "none";
+
+        }
+
+        function handleLoad() {
+            document.getElementById("section-2").style.display = "none";
+            document.getElementById("section-1").style.display = "block";
+        }
+
+        function handleNo(event) {
+            let targetElement = event.target;
+
+            let maxX = window.innerWidth - targetElement.offsetWidth;
+            let maxY = window.innerHeight - targetElement.offsetHeight;
+
+            let newX = Math.floor(Math.random() * maxX);
+            let newY = Math.floor(Math.random() * maxY);
+
+            console.log("hi", event);
+
+
+            targetElement.style.left = newX + "px";
+            targetElement.style.top = newY + "px";
+
+            let n = propmtArray.length - 1;
+            let randomIndex = Math.floor(Math.random() * n);
+
+            document.getElementById("promtText").innerText = propmtArray[randomIndex];
+
+        }
+    </script>
+
+</body>
+
+</html>
