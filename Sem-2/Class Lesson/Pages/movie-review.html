@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppenheimer - Movie Review Site</title>
+    <style>
+        /* Dark theme CSS */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: Arial, sans-serif; 
+            background: #121212; 
+            color: #fff; 
+            line-height: 1.6; 
+            padding: 20px; 
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .hero { display: flex; gap: 30px; margin-bottom: 40px; flex-wrap: wrap; }
+        .hero h1 { font-size: 3em; color: #ff6b35; margin-bottom: 20px; }
+        .poster { width: 400px; height: 600px; object-fit: cover; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .quick-facts { background: #1e1e1e; padding: 20px; border-radius: 10px; margin-bottom: 20px; }
+        .trailer-section { margin: 40px 0; text-align: center; }
+        video, audio { width: 100%; max-width: 800px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .review-card { 
+            background: linear-gradient(135deg, #ff6b35, #f7931e); 
+            padding: 30px; 
+            border-radius: 15px; 
+            margin: 40px 0; 
+            text-align: center; 
+            box-shadow: 0 15px 40px rgba(255,107,53,0.3); 
+        }
+        .stars { font-size: 2em; color: #ffd700; }
+        .rating-form { 
+            background: #1e1e1e; 
+            padding: 30px; 
+            border-radius: 15px; 
+            margin: 40px 0; 
+        }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 10px; font-weight: bold; color: #ff6b35; }
+        input[type="range"] { width: 100%; height: 8px; border-radius: 5px; background: #333; outline: none; }
+        input[type="range"]::-webkit-slider-thumb { appearance: none; width: 25px; height: 25px; background: #ff6b35; border-radius: 50%; cursor: pointer; }
+        textarea { width: 100%; min-height: 120px; padding: 15px; border-radius: 10px; border: 2px solid #333; background: #2a2a2a; color: #fff; resize: vertical; }
+        button { 
+            background: #8b5cf6; 
+            color: white; 
+            padding: 15px 40px; 
+            border: none; 
+            border-radius: 50px; 
+            font-size: 1.2em; 
+            cursor: pointer; 
+            transition: all 0.3s; 
+            box-shadow: 0 5px 15px rgba(139,92,246,0.4); 
+        }
+        button:hover { 
+            background: #a78bfa; 
+            transform: translateY(-3px); 
+            box-shadow: 0 10px 25px rgba(139,92,246,0.6); 
+            glow: purple; 
+        }
+        .price { text-decoration: line-through; color: #999; }
+        .deal { color: #4ade80; font-weight: bold; font-size: 1.5em; }
+        @media (max-width: 768px) { .hero { flex-direction: column; text-align: center; } .poster { width: 100%; max-width: 300px; height: auto; } }
+        .facts-trailer { display: flex; gap: 40px; margin: 40px 0; flex-wrap: wrap; }
+        .trailer-side { flex: 1; min-width: 400px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div>
+                <h1>Oppenheimer</h1>
+                <p><strong>The greatest cinematic achievement<sup>2023</sup></strong> by Christopher Nolan</p>
+            </div>
+            <img src="https://via.placeholder.com/400x600/ff6b35/121212?text=Oppenheimer+Poster" alt="Oppenheimer Movie Poster" class="poster" width="400">
+        </section>
+
+        <!-- Quick Facts and Trailer -->
+        <section class="facts-trailer">
+            <div class="quick-facts">
+                <h2>Quick Facts</h2>
+                <ul>
+                    <li>Director: <em>Christopher Nolan</em></li>
+                    <li>Released: <ins>July 21, 2023</ins></li>
+                    <li>Duration: 180 min</li>
+                    <li>Genre: <mark>Biography/Drama</mark></li>
+                </ul>
+            </div>
+            <div class="trailer-side">
+                <h2>Official Trailer</h2>
+                <video controls poster="https://via.placeholder.com/800x450/ff6b35/121212?text=Trailer+Thumbnail">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+        <!-- Review Card -->
+        <section class="review-card">
+            <div class="stars">★★★★☆</div>
+            <h2>9.5<small>/10</small></h2>
+            <p>"The <strong>best ever made</strong>!" <cite>&mdash; Roger Ebert</cite></p>
+            <p>Originally <del>₹499</del> <span class="deal">→ ₹399 (Today's Deal!)</span></p>
+        </section>
+
+        <!-- Rating Form -->
+        <section class="rating-form">
+            <h2>Rate This Movie</h2>
+            <form id="ratingForm">
+                <div class="form-group">
+                    <label for="rating">Your Rating (1-10):</label>
+                    <input type="range" id="rating" name="rating" min="1" max="10" value="5" required>
+                    <span id="ratingValue">5</span>/10
+                </div>
+                <div class="form-group">
+                    <label for="review">Your Review:</label>
+                    <textarea id="review" name="review" placeholder="Share your thoughts..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category:</label>
+                    <select id="category" name="category" required>
+                        <option value="">Select...</option>
+                        <option value="story">Story</option>
+                        <option value="acting">Acting</option>
+                        <option value="visuals">Visuals</option>
+                    </select>
+                </div>
+                <button type="submit">Submit Review</button>
+            </form>
+        </section>
+
+        <!-- Audio Player -->
+        <section class="audio-section" style="text-align: center; margin-top: 40px;">
+            <h3>Background Score Preview</h3>
+            <audio controls>
+                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp4" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </section>
+    </div>
+
+    <script>
+        // Interactive form validation and rating display
+        const ratingSlider = document.getElementById('rating');
+        const ratingValue = document.getElementById('ratingValue');
+        const form = document.getElementById('ratingForm');
+
+        ratingSlider.addEventListener('input', () => {
+            ratingValue.textContent = ratingSlider.value;
+        });
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (form.checkValidity()) {
+                alert('Thank you for your review! Rating: ' + ratingSlider.value + '/10');
+                form.reset();
+                ratingValue.textContent = '5';
+                ratingSlider.value = 5;
+            } else {
+                alert('Please fill all fields correctly.');
+            }
+        });
+
+        // Hover effects on review card
+        const reviewCard = document.querySelector('.review-card');
+        reviewCard.addEventListener('mouseenter', () => {
+            reviewCard.style.transform = 'scale(1.02)';
+        });
+        reviewCard.addEventListener('mouseleave', () => {
+            reviewCard.style.transform = 'scale(1)';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+form{
+    background-color: chocolate;
+    color: black;
+    border: 3px ridge burlywood;
+    border-radius: 10%;
+}
+
+aside{
+    width: 30%;
+    border: 0.5px solid black;
+    float: right;
+}
