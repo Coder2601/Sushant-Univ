@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo List</title>
 </head>
+
 <body>
     <div>
         <h3>ToDo List</h3>
@@ -20,8 +22,8 @@
     <script>
         let taksListArr = [];
 
-        
-        function handleTask(){
+
+        function handleTask() {
             let ipId = document.getElementById("taskId");
             let ipTitle = document.getElementById("taskTitle");
 
@@ -31,37 +33,49 @@
 
             console.log(idVal, titleVal);
 
-            if(idVal<1 || !idVal || !titleVal){
+            if (idVal < 1 || !idVal || !titleVal) {
                 alert("Invalid Fields");
-
-                // console.log("invalid id = "+idVal);
-                // console.log(`Invalid id = ${idVal}`);
-                
-                
                 return;
             }
 
-            taksListArr.push({id:idVal, title:titleVal});
+            taksListArr.push({ id: idVal, title: titleVal, status: "Pending" });
 
             renderList();
-            
+
         }
 
         // Clear Screen && Task List Re-Render
-        function renderList(){
+        function renderList() {
             let taskList = document.getElementById("taskList");
             taskList.innerHTML = "";
 
-            taksListArr.map((task,index)=>{
+            taksListArr.map((task, index) => {
                 let listItem = document.createElement("li");
-                listItem.innerHTML = `<div>
-                        <b>${task.id}</b>     ${task.title}   
-                        <span><button id="edit${index}" title = "Edit Task" onclick = "handleEdit(${index})">Edit</button></span>
-                        <span><button id="delete${index}" title = "Delete Task" onclick = "handleDelete(${index})">Delete</button></span>
+                let buttonText = "";
+                let btnStyle = "";
 
-                    </div>`
+                if (task.status == "Pending") {
+                    buttonText = "Mark Completed";
+                    btnStyle = "none";
+                } else {
+                    buttonText = "Undo";
+                    btnStyle = "line-through";
+                }
+
+                listItem.innerHTML = `<div>
+                        <b>${task.id}</b> 
+                        <p id="taskData-${index}">${task.title}</p>   
+                        <span><button id="edit${index}"  title = "Edit Task" onclick = "handleEdit(${index})">Edit</button></span>
+                        <span><button id="delete${index}" title = "Delete Task" onclick = "handleDelete(${index})">Delete</button></span>
+                        <br>
+                        <button style="text-decoration:"${btnStyle}"" id="statusButton-${index}" onclick="handleStatus(${index})">${buttonText}</button>
+                    </div>`;
+
+                let listId = `item-${index}`;
+
+                listItem.setAttribute("id", listId);
                 taskList.appendChild(listItem);
-                
+
             })
 
             document.getElementById("taskId").value = "";
@@ -72,17 +86,42 @@
 
         }
 
-        function handleDelete(index){
-            taksListArr.splice(index,1);
+        function handleDelete(index) {
+            taksListArr.splice(index, 1);
             renderList();
         }
 
 
 
+        function handleEdit(index) {
+            let updatedVal = prompt("Enter the updated data");
 
+            let task = document.getElementById(`taskData-${index}`);
+            console.log(task);
 
+            if (updatedVal.trim() == "") {
+                alert("Inavlid Input");
 
+            } else {
+                task.innerText = updatedVal;
+            }
+            renderList();
+        }
 
+        function handleStatus(index) {
+            if (taksListArr[index].status == "Pending") {
+                document.getElementById(`taskData-${index}`).style.textDecoration = "line-through";
+                document.getElementById(`statusButton-${index}`).innerText = "Undo";
+
+                taksListArr[index].status = "Completed";
+            } else {
+                document.getElementById(`taskData-${index}`).style.textDecoration = "none";
+                document.getElementById(`statusButton-${index}`).innerText = "Mark Completed";
+
+                taksListArr[index].status = "Pending";
+            }
+            // renderList();
+        }
 
 
 
@@ -92,4 +131,5 @@
 
     </script>
 </body>
+
 </html>
