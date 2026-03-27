@@ -1,0 +1,53 @@
+body {
+    background-color: aliceblue;
+    /* background:linear-gradient(to bottom left,red,orange,yellow); */
+    /* background: radial-gradient(circle at bottom, purple 10%,pink 50%,white 70%); */
+    /* background: conic-gradient(green 20%,purple,orange,pink,orange,red 10%,blue 90%,yellow,cyan); */
+    /* background-image: url("https://th.bing.com/th/id/OIP.Q7kKOnwCYVCRkci4DGR8qgHaHa?w=183&h=183&c=7&r=0&o=7&dpr=1.1&pid=1.7&rm=3"); */
+    /* background-repeat: no-repeat; */
+    /* background-size: contain; */
+}
+
+/* div{
+    background-color: black;
+    height: 400px;
+    width: 200px;
+}
+p{
+    color: rgb(0, 0, 0);
+    background-color: aquamarine;
+    padding: 40px;
+    border: 1px solid red;
+    height: 2%;
+} */
+
+.div1,
+.div2 {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+}
+
+.div1 {
+    background-color: rgb(13, 197, 197);
+    position: relative;
+    z-index:20;
+    left:20px;
+    top:20px;
+}
+
+.div2 {
+    background-color: bisque;
+    width: 400px;
+    position: relative;
+    left: 0px;
+    top: -100px;
+    z-index:4;
+
+}
+
+.parentDiv {
+    background-color: aquamarine;
+    width: 500px;
+    height: 500px;
+}

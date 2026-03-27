@@ -1,5 +1,5 @@
-*{
-    margin:0;
+* {
+    margin: 0;
     padding: 0;
 }
 
@@ -18,6 +18,7 @@ nav {
     z-index: 999;
     top: 0;
     width: 100%;
+    padding: 1rem 0;
 }
 
 #nav-logo {
@@ -44,38 +45,37 @@ nav {
     opacity: 0.5;
 }
 
-.section-container {
-    font-size:20px;
+.section {
+    font-size: 20px;
     width: 100vw;
     height: 20rem;
     background-color: aliceblue;
+    min-width: 500px;
 }
 
 .cards-container {
     display: flex;
     justify-content: space-evenly;
+    padding-top: 20px;
 }
 
 .card {
     font-size: 0.7em;
     width: 20%;
     height: 8rem;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     background-color: beige;
-    min-width:120px;
-    min-height:180px;
+    min-width: 120px;
+    min-height: 180px;
+    box-shadow: 0.5px 1px black;
 }
 
-/* .p-text{
-    font-size: 16px;
-    width: 400px;
-    min-width:300px;
-    outline: 1px solid red;
-    height: 8em;
-    max-height: 80px;
-} */
+p{
+    /* visibility: hidden; */
+    display: none;
+    width:200px;
+}
 
-section{
-    padding-top:50px;
-    border:0.5px solid black
+section {
+    padding: 80px 0px;
 }
