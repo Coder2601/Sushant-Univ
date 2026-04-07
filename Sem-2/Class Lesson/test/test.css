@@ -1,53 +1,134 @@
 body {
-    background-color: aliceblue;
+    background-color: rgb(0, 0, 0);
     /* background:linear-gradient(to bottom left,red,orange,yellow); */
     /* background: radial-gradient(circle at bottom, purple 10%,pink 50%,white 70%); */
     /* background: conic-gradient(green 20%,purple,orange,pink,orange,red 10%,blue 90%,yellow,cyan); */
     /* background-image: url("https://th.bing.com/th/id/OIP.Q7kKOnwCYVCRkci4DGR8qgHaHa?w=183&h=183&c=7&r=0&o=7&dpr=1.1&pid=1.7&rm=3"); */
     /* background-repeat: no-repeat; */
     /* background-size: contain; */
+    min-height:500vh;
+    min-width: 500vw;
 }
-
-/* div{
-    background-color: black;
-    height: 400px;
-    width: 200px;
-}
-p{
-    color: rgb(0, 0, 0);
-    background-color: aquamarine;
-    padding: 40px;
-    border: 1px solid red;
-    height: 2%;
-} */
 
 .div1,
-.div2 {
-    width: 100px;
+.div2,.parent-2,.div3 {
+    width: 200px;
     height: 100px;
     text-align: center;
 }
 
 .div1 {
     background-color: rgb(13, 197, 197);
-    position: relative;
     z-index:20;
-    left:20px;
-    top:20px;
+    width:130px;
 }
 
 .div2 {
     background-color: bisque;
-    width: 400px;
-    position: relative;
-    left: 0px;
-    top: -100px;
+    width: 150px;
     z-index:4;
 
 }
+.div3{
+    background-color: black;
+    color: white;
+}
 
 .parentDiv {
-    background-color: aquamarine;
-    width: 500px;
+    background-color: rgba(127, 255, 212,0.4);
+    width: 400px;
     height: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items:start;
+    flex-wrap: wrap;
+    /* opacity: 0.9; */
+}
+
+
+.parent-2{
+    background-color: orange;
+    width: 600px;
+    height: 500px;
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(5, 50px);
+    gap: 200px;
+}
+
+.pdiv1,.pdiv2,.pdiv3,.pdiv4,.pdiv5,.pdiv6{
+    width:100px;
+    height:100px;
+}
+.pdiv1{
+    background-color: rgb(6, 17, 26);
+    width: 100px;
+}
+.pdiv2{
+    background-color: rgb(60, 145, 221);
+    width: 100px;
+}
+.pdiv3{
+    background-color: rgb(17, 197, 11);
+    width: 100px;
+}
+.pdiv4{
+    background-color: rgb(190, 12, 143);
+}
+.pdiv5{
+    background-color: rgb(241, 255, 138);
+}
+.pdiv6{
+    background-color: brown;
+}
+
+
+.parentDiv div:nth-child(even){
+    background-color: orange;
+}
+.parentDiv div:nth-child(odd){
+    background-color: rgb(83, 131, 229);
+}
+.parentDiv div:nth-of-type(5){
+    background-color: rgb(232, 222, 24);
+}
+
+.parentDiv div:first-of-type{
+    font-size: 40px;
+}
+.parentDiv div:last-of-type{
+    background-color: aqua;
+}
+
+
+.list li{
+    background-color: red;
+    text-decoration: line-through;
+}
+.list li:not(.completed){
+    background-color: green;
+    text-decoration: none;
+}
+
+
+#first::first-line{
+    color: orange;
+}
+
+#first::first-letter{
+    color: red;
+    font-size: 1.5em;
+}
+
+p::before{
+    content: 'Ques.';
+    font-weight: bold;
+    color: black;
+    font-size: 1em;
+}
+
+
+p::first-letter{
+    initial-letter: 4 3;
 }

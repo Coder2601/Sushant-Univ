@@ -39,11 +39,6 @@ nav {
     padding-right: 10px;
 }
 
-.list-item a:hover {
-    font-size: larger;
-    font-weight: bolder;
-    opacity: 0.5;
-}
 
 .section {
     font-size: 20px;
@@ -57,6 +52,7 @@ nav {
     display: flex;
     justify-content: space-evenly;
     padding-top: 20px;
+    align-items: center;
 }
 
 .card {
@@ -70,12 +66,68 @@ nav {
     box-shadow: 0.5px 1px black;
 }
 
-p{
-    /* visibility: hidden; */
-    display: none;
-    width:200px;
-}
-
 section {
     padding: 80px 0px;
+}
+
+.contact-section-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.contact-section-form,
+.contact-section-media {
+    box-shadow: 1px 2px grey;
+    border-radius: 50px;
+    border: 1px solid rgb(159, 159, 255);
+}
+
+.contact-section-form {
+    padding: 80px 0px;
+    width: 90%;
+}
+
+.contact-section-media {
+    padding: 20px 0px;
+}
+
+
+.list-item a:hover{
+    color: black;
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+textarea:focus, input:focus{
+    background-color: blanchedalmond;
+    color: brown;
+    box-shadow: 0.5px 1px greenyellow;
+}
+
+button:hover{
+    background-color: aqua;
+}
+
+button:focus{
+    background-color: red;
+}
+
+button:active{
+    background-color: fuchsia;
+}
+
+.intouch:focus{
+    background-color: aquamarine;
+}
+
+a:visited{
+    color:purple;
+    font-weight: 500;
+}
+
+h2:first-child{
+    color: blueviolet;
+    font-variant: small-caps;
 }
